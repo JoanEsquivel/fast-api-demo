@@ -6,7 +6,9 @@ Project is developed using the Python version: **Python 3.12.0**
 
 ---
 
-## First of all - Install Python (mac instructions)
+## I | Install Python
+
+### Mac OS instructions
 
 Please check the following links to install python & manage versions & virtual environments:
 
@@ -43,3 +45,28 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
+
+---
+
+## II | Package management
+
+1. Upgrade pip: Many exotic errors while installing a package are solved by just upgrading pip first.
+
+```
+python -m pip install --upgrade pip
+```
+
+2. Add dependencies to the requirements.txt & install the packages
+
+```
+requirements.txt
+
+fastapi[standard]==0.115.0
+pydantic==2.8.0
+```
+
+```
+pip install -r requirements.txt
+```
+
+More insights about requirements & editor configurations in the [official documentation](https://fastapi.tiangolo.com/es/virtual-environments/#configure-your-editor)
