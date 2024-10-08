@@ -70,3 +70,19 @@ pip install -r requirements.txt
 ```
 
 More insights about requirements & editor configurations in the [official documentation](https://fastapi.tiangolo.com/es/virtual-environments/#configure-your-editor)
+
+## III | Fast API setup
+
+1. Install uvicorn as a server or add it in the requirements.txt
+
+```
+uvicorn==0.31.0
+```
+
+2. Run the server in the terminal
+
+```
+uvicorn main:app --reload
+```
+
+3. Then, you can continue with the official [guideline](https://fastapi.tiangolo.com/es/tutorial/first-steps/)
