@@ -1,6 +1,7 @@
 from enum import Enum
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from pydantic import BaseModel
+from typing import Annotated
 
 app = FastAPI()
 
@@ -83,8 +84,11 @@ async def create_item(item: Item):
     return item
 
 @app.put("/items/{item_id}")
-async def update_item(item_id: int, item: Item, q: str | None = None):
+async def update_item(item_id: int, item: Item, q: Annotated[str | None, Query(title="Test", description="Query string for the items to search in the database that have a good match", min_length=3,max_length=50,pattern="^fixedquery$",
+            deprecated=True,)] = None):
     result = {"item_id": item_id, **item.dict()}
     if q:
         result.update({"q": q})
     return result
+
+# Continue with: https://fastapi.tiangolo.com/tutorial/path-params-numeric-validations/
