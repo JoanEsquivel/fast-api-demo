@@ -79,7 +79,7 @@ class Item(BaseModel):
     price: float
     tax: float | None = None
 
-@app.post("/items/", tags=["Items"], summary="Create an item")
+@app.post("/items/", tags=["Items"], summary="Create an item", status_code=201)
 async def create_item(item: Item):
     return item
 
