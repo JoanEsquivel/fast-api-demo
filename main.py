@@ -1,5 +1,5 @@
 from enum import Enum
-from fastapi import FastAPI, Query, Path, Body
+from fastapi import FastAPI, Query, Path, Body, status
 from pydantic import BaseModel, Field
 from typing import Annotated, Literal
 
@@ -101,7 +101,7 @@ class Item(BaseModel):
 class User(BaseModel):
     username: str = Field(examples=['joanmedia'])
     full_name: str | None = Field(default=None, examples=['Joan Esquivel'])
-@app.post("/items/", tags=["Items"], summary="Create an item", status_code=201)
+@app.post("/items/", tags=["Items"], summary="Create an item", status_code=status.HTTP_201_CREATED)
 async def create_item(item: Item, user: User):
     results = {"item": item, "user": user}
     return results
