@@ -86,3 +86,5 @@ uvicorn main:app --reload
 ```
 
 3. Then, you can continue with the official [guideline](https://fastapi.tiangolo.com/es/tutorial/first-steps/)
+
+Note: You can access the API using this link: https://fast-api-demo-one.vercel.app/docs#/
