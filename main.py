@@ -85,10 +85,22 @@ class Item(BaseModel):
     description: str | None = None
     price: float
     tax: float | None = None
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "name": "Foo",
+                    "description": "A very nice Item",
+                    "price": 35.4,
+                    "tax": 3.2,
+                }
+            ]
+        }
+    }
 
 class User(BaseModel):
-    username: str
-    full_name: str | None = None
+    username: str = Field(examples=['joanmedia'])
+    full_name: str | None = Field(default=None, examples=['Joan Esquivel'])
 @app.post("/items/", tags=["Items"], summary="Create an item", status_code=201)
 async def create_item(item: Item, user: User):
     results = {"item": item, "user": user}
