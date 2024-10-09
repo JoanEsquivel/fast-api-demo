@@ -1,6 +1,6 @@
 from enum import Enum
-
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -70,3 +70,21 @@ async def read_user_item(
             {"description": "This is an amazing item that has a long description"}
         )
     return item
+
+# ----------------- Request Body -----------------
+class Item(BaseModel):
+    name: str
+    description: str | None = None
+    price: float
+    tax: float | None = None
+
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
+
+@app.put("/items/{item_id}")
+async def update_item(item_id: int, item: Item, q: str | None = None):
+    result = {"item_id": item_id, **item.dict()}
+    if q:
+        result.update({"q": q})
+    return result
