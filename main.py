@@ -14,13 +14,13 @@ SECRET_KEY = "a92e0e525caf0655d882d08d7a630da13851677b2228fce603c3b8dc9990b2ff"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-
+#Bcrypt password hash generator: https://bcrypt-generator.com/
 fake_users_db = {
     "johndoe": {
         "username": "johndoe",
         "full_name": "John Doe",
         "email": "johndoe@example.com",
-        "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
+        "hashed_password": "$2a$12$78ADrYSj8pXbfBqaSSlhAOVy.ZJh7uC3z118HAFjRonXwhQQDT9/y",
         "disabled": False,
     }
 }
