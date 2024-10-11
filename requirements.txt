@@ -1,3 +1,5 @@
 fastapi[standard]==0.115.0
 pydantic==2.8.0
 uvicorn==0.31.0
+PyJWT==2.9.0
+passlib[bcrypt]==1.7.4
